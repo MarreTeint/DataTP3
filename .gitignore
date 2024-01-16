@@ -161,3 +161,4 @@ cython_debug/
 
 # Protobuf
 *.dat
+*_pb2.py
