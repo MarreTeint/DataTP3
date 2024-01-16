@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "Util.proto";
+import "google/protobuf/timestamp.proto";
+
+// Enumération représentant les types de jeux vidéo
+enum GameType {
+  GENERIC = 0;
+  SPORTS = 1;
+  ADVENTURE = 2;
+  RACING = 3;
+  // Ajoutez d'autres types au besoin
+}
+
+// Message représentant une partie jouée
+message GamePlay {
+  Date date_play = 1;
+  optional int32 minutes_played = 2;
+}
+
+// Message représentant un jeu vidéo
+message VideoGame {
+  string name = 1;
+  repeated GameType game_type = 2;
+  google.protobuf.Timestamp date_purchase = 3;
+  repeated GamePlay game_plays = 4;
+}
+
+// Message représentant une collection de jeux vidéo
+message GameCollection {
+  repeated VideoGame games = 1;
+}
